@@ -1,0 +1,8 @@
+Fix Tables on md files (refer to pandoc.org/README.html#tables for more info)
+Fix h1 (#) formatting (doesn't have a newline placed on it)
+Might have to do tables with the same format as code blocks
+Will probably have to do a straight replacement for the h1 blocks because of the way they are inserted
+Look to make sure that the other header blocks worked right
+Go over the list of possible github-flavored markdown that can be used to see if I might have missed anything
+Browse through the complete documents (both .md and .pdf) to see if there are any blatantly wrong formatting errors
+
