@@ -9,14 +9,23 @@ sub parseTable {
 	my @return_array;
 	foreach $section (@_) {
 		my @column_lengths;
+		my $num_columns;
 		my @rows = split('\n', $section);
 		foreach $item (@rows) {
 			my @columns = split(' | ', $item);
+			$num_columns = scalar @columns;
 			my $column_index = 0;
 			foreach $item (@columns) {
 				@column_lengths[$column_index] += length $item;
+				$column_index++;
 			}
 		}
+		#Now we have the total column lengths
+		for (my $i = 0; $i < scalar @column_lengths; $i++) {
+			@column_lengths[$i] = @column_lengths[$i] / $num_columns;
+		}
+		#Now we have the average column lengths
+
 	}
 }
 
