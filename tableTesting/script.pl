@@ -44,7 +44,6 @@ $data =~ s/\(line_quad_tab\)/\n        /g;
 $data =~ s/\(line_break\)/\n___/g;
 $data =~ s/\(double_line\)/\n\n/g;
 $data =~ s/\s# /\n# /g;
-
 #Fitting tables
 $data =~ s/\(table_block\)/\n(table_block)\n/g;
 

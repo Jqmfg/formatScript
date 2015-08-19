@@ -8,23 +8,45 @@ use Path::Tiny qw(path);
 sub parseTable {
 	my @return_array;
 	foreach $section (@_) {
-		my @column_lengths;
+		my $return_section
+
+		my @table;
+		my @columns;
+		my @col_lengths;
 		my $num_columns;
 		my @rows = split('\n', $section);
 		foreach $item (@rows) {
-			my @columns = split(' | ', $item);
+			@columns = split(' | ', $item);
 			$num_columns = scalar @columns;
 			my $column_index = 0;
 			foreach $item (@columns) {
-				@column_lengths[$column_index] += length $item;
+				@col_lengths[$column_index] += length $item;
 				$column_index++;
 			}
+			#TODO: Start work here
+			@table[scalar @table][scalar @table[]] =
 		}
 		#Now we have the total column lengths
-		for (my $i = 0; $i < scalar @column_lengths; $i++) {
-			@column_lengths[$i] = @column_lengths[$i] / $num_columns;
+		for (my $i = 0; $i < scalar @col_lengths; $i++) {
+			@col_lengths[$i] = @col_lengths[$i] / $num_columns;
 		}
 		#Now we have the average column lengths
+		#Total of 80 columns
+		my $char_cols = 80 - (scalar @columns - 1);
+		my $total_col_length = 0;
+		for(@col_lengths) {
+			$total_col_length += $_;
+		}
+		for (my $i = 0; $i < scalar @col_lengths; $i++) {
+			@col_lengths[$i] = (@col_lengths[$i] / $total_col_length) * 80;
+		}
+
+
+		#Concatenating all strings together
+		for(my $i = 0; $i < 80; $i++) {
+			$return_section .= "-";
+		}
+		$return_section .= "\n";
 
 	}
 }

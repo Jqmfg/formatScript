@@ -1,11 +1,12 @@
-Columns = 61
+---------------------------------------------------------------------------------------------------------------
+ Centered   Default           Right Left
+  Header    Aligned         Aligned Aligned
+----------- ------- --------------- ---------------------------------------------------------------------------
+   First and suchnesses    row                12.0 Example of a row that
+                                    spans multiple lines.
 
-: Sample grid table.
+  Second    row                 5.0 Here's another one. Note that the blank line might have  some interesting stuff to tell us because something has clearly gone terribly wrong with how this stuff all works and all of that good things and ness
+---------------------------------------------------------------------------------------------------------------
 
-| Sample Table | This is a test |
-|       -      |         -      |
-| This is the  | First row of and this is some other stuff too, the only question is, how much stuff can I fit into here before it realizes that it has to wrap if it ever does? |
-| The table,   | excuse me |
-| The third    | row now        |
-
-And other stuff
+Table: Here's the caption. It, too, may span
+multiple lines.
