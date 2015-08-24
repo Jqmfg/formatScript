@@ -8,23 +8,27 @@ use Path::Tiny qw(path);
 sub parseTable {
 	my @return_array;
 	foreach $section (@_) {
-		my $return_section
+		my $return_section;
 
 		my @table;
 		my @columns;
 		my @col_lengths;
 		my $num_columns;
+		#TODO: Check to ensure that this split doesn't mess up formatting
 		my @rows = split('\n', $section);
 		foreach $item (@rows) {
+			#TODO: Check to ensure that this split doesn't mess up formatting
 			@columns = split(' | ', $item);
 			$num_columns = scalar @columns;
 			my $column_index = 0;
+			#TODO: Start work here
+			my @table_row;
 			foreach $item (@columns) {
 				@col_lengths[$column_index] += length $item;
 				$column_index++;
+				@table_row[scalar @table] = $item;
 			}
-			#TODO: Start work here
-			@table[scalar @table][scalar @table[]] =
+			@table[scalar @table] = @table_row;
 		}
 		#Now we have the total column lengths
 		for (my $i = 0; $i < scalar @col_lengths; $i++) {
@@ -40,7 +44,14 @@ sub parseTable {
 		for (my $i = 0; $i < scalar @col_lengths; $i++) {
 			@col_lengths[$i] = (@col_lengths[$i] / $total_col_length) * 80;
 		}
-
+		#Now we have the relative column size
+		#TODO: Check for overflow
+		#TODO: Check for 80 columns
+		for(my $j = 0; $j < scalar @table; $j++) {
+			for(my $k = 0; $k < scalar @table[$j]; $k++) {
+				
+			}
+		}
 
 		#Concatenating all strings together
 		for(my $i = 0; $i < 80; $i++) {
