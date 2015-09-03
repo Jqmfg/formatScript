@@ -49,7 +49,7 @@ sub parseTable {
 		#TODO: Check for 80 columns
 		for(my $j = 0; $j < scalar @table; $j++) {
 			for(my $k = 0; $k < scalar @table[$j]; $k++) {
-				
+
 			}
 		}
 
